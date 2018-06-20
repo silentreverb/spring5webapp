@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -29,8 +28,6 @@ public class Publisher {
     private String city;
     private String stateOfResidence;
     private String zip;
-    @OneToOne(mappedBy = "publisher")
-    private Book book;
     
     public Publisher() {
     }
@@ -42,16 +39,6 @@ public class Publisher {
         this.city = city;
         this.stateOfResidence = state;
         this.zip = zip;
-    }
-    
-    public Publisher(String name, String addressLine1, String addressLine2, String city, String state, String zip, Book book) {
-        this.name = name;
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.city = city;
-        this.stateOfResidence = state;
-        this.zip = zip;
-        this.book = book;
     }
 
     /**
@@ -139,20 +126,6 @@ public class Publisher {
     }
 
     /**
-     * @return the books
-     */
-    public Book getBook() {
-        return book;
-    }
-
-    /**
-     * @param books the books to set
-     */
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    /**
      * @return the id
      */
     public Long getId() {
@@ -193,7 +166,7 @@ public class Publisher {
 
     @Override
     public String toString() {
-        return "Publisher{" + "id=" + id + ", name=" + name + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city + ", state=" + stateOfResidence + ", zip=" + zip + ", book=" + book + '}';
+        return "Publisher{" + "id=" + id + ", name=" + name + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city + ", state=" + stateOfResidence + ", zip=" + zip + '}';
     }
     
 }
